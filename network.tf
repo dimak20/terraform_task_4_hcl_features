@@ -13,7 +13,7 @@ resource "azurerm_subnet" "internal" {
 }
 
 resource "azurerm_network_interface" "main" {
-  for_each            = toset(local.interface_names)
+  for_each            = toset(local.network_interface_names)
   name                = "${var.prefix}-${each.value}-nic"
   location            = azurerm_resource_group.taskgroup.location
   resource_group_name = azurerm_resource_group.taskgroup.name
